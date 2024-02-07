@@ -1,0 +1,205 @@
+Source: pmdk
+Section: libs
+Priority: optional
+Maintainer: Adam Borowski <kilobyte@angband.pl>
+Build-Depends: bash-completion,
+               bc,
+               cmake,
+               debhelper,
+               debhelper-compat (= 10),
+               dh-exec,
+               libdaxctl-dev (>= 64),
+               libndctl-dev (>= 64),
+               ndctl,
+               pandoc,
+               pkg-config,
+               python3,
+               strace,
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: https://github.com/pmem/pmdk/tags
+Vcs-Git: https://github.com/kilobyte/pmdk -b debian
+Vcs-Browser: https://github.com/kilobyte/pmdk/tree/debian
+
+Package: libpmem1
+Architecture: amd64
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory low level support library, v1 runtime
+ libpmem provides low level persistent memory support.  In particular, support
+ for the persistent memory instructions for flushing changes to pmem is
+ provided.
+ .
+ This library is provided for software which tracks every store to pmem and
+ needs to flush those changes to durability.  Most developers will find higher
+ level libraries like libpmemobj to be much more convenient.
+ .
+ This package provides binary runtime for version 1 of the API.
+
+Package: libpmem1-debug
+Architecture: amd64
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory low level support library — debug build
+ libpmem provides low level persistent memory support.  In particular, support
+ for the persistent memory instructions for flushing changes to pmem is
+ provided.
+ .
+ This package contains a special build of this library meant for debugging
+ purposes.  It contains extra logging, assertions and expensive checks that
+ should not be used otherwise.
+
+Package: libpmem-dev
+Section: libdevel
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem1 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory low level support library, v1 headers
+ libpmem provides low level persistent memory support.  In particular, support
+ for the persistent memory instructions for flushing changes to pmem is
+ provided.
+ .
+ This package contains libraries and header files used for linking programs
+ against libpmem.
+
+Package: libpmem2
+Architecture: amd64
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory low level support library, v2 runtime
+ libpmem provides low level persistent memory support.  In particular, support
+ for the persistent memory instructions for flushing changes to pmem is
+ provided.
+ .
+ This library is provided for software which tracks every store to pmem and
+ needs to flush those changes to durability.  Most developers will find higher
+ level libraries like libpmemobj to be much more convenient.
+
+Package: libpmem2-debug
+Architecture: amd64
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory low level support library — debug build
+ libpmem provides low level persistent memory support.  In particular, support
+ for the persistent memory instructions for flushing changes to pmem is
+ provided.
+ .
+ This package contains a special build of this library meant for debugging
+ purposes.  It contains extra logging, assertions and expensive checks that
+ should not be used otherwise.
+
+Package: libpmem2-dev
+Section: libdevel
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem2 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory low level support library, v2 headers
+ libpmem provides low level persistent memory support.  In particular, support
+ for the persistent memory instructions for flushing changes to pmem is
+ provided.
+ .
+ This package contains libraries and header files used for linking programs
+ against libpmem2, with a modernized API that avoids certain limitations of
+ libpmem1.
+
+Package: libpmemobj1
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem1 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory object store support library
+ libpmemobj turns a persistent memory file into a flexible object store,
+ supporting transactions, memory management, locking, lists, and a number of
+ other features.
+
+Package: libpmemobj1-debug
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem1-debug (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Persistent Memory object store support library — debug build
+ libpmemobj turns a persistent memory file into a flexible object store,
+ supporting transactions, memory management, locking, lists, and a number of
+ other features.
+ .
+ This package contains a special build of this library meant for debugging
+ purposes.  It contains extra logging, assertions and expensive checks that
+ should not be used otherwise.
+
+Package: libpmemobj-dev
+Section: libdevel
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem-dev (= ${binary:Version}),
+         libpmemobj1 (= ${binary:Version}),
+         libndctl-dev (>= 64),
+         libdaxctl-dev (>= 64),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: development files for libpmemobj1
+ libpmemobj turns a persistent memory file into a flexible object store,
+ supporting transactions, memory management, locking, lists, and a number of
+ other features.
+ .
+ This package contains libraries and header files used for linking programs
+ against libpmemobj.
+
+Package: libpmempool1
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem1 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory pool management support library
+ libpmempool provides a set of utilities for management, diagnostics and repair
+ of persistent memory pools.  A pool in this context means a pmemobj pool,
+ pmemblk pool, pmemlog pool or BTT layout, independent of the underlying
+ storage.  The libpmempool is for applications that need high reliability or
+ built-in troubleshooting.  It may be useful for testing and debugging purposes
+ also.
+
+Package: libpmempool1-debug
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem1-debug (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Persistent Memory pool management support library — debug build
+ libpmempool provides a set of utilities for management, diagnostics and repair
+ of persistent memory pools.  A pool in this context means a pmemobj pool,
+ pmemblk pool, pmemlog pool or BTT layout, independent of the underlying
+ storage.  The libpmempool is for applications that need high reliability or
+ built-in troubleshooting.  It may be useful for testing and debugging purposes
+ also.
+ .
+ This package contains a special build of this library meant for debugging
+ purposes.  It contains extra logging, assertions and expensive checks that
+ should not be used otherwise.
+
+Package: libpmempool-dev
+Section: libdevel
+Architecture: amd64
+Multi-Arch: same
+Depends: libpmem-dev (= ${binary:Version}),
+         libpmempool1 (= ${binary:Version}),
+         libndctl-dev (>= 64),
+         libdaxctl-dev (>= 64),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: development files for libpmempool1
+ libpmempool provides a set of utilities for management, diagnostics and repair
+ of persistent memory pools.
+ .
+ This package contains libraries and header files used for linking programs
+ against libpmempool.
+
+Package: pmdk-tools
+Section: misc
+Architecture: amd64
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Persistent Memory management tools
+ The main purpose of this package is to provide a user with a set of utilities
+ for off-line analysis and manipulation of pools created by pmem libraries.
+ .
+ The utilities may be useful for troubleshooting by system administrators and
+ for software developers who work on applications based on these libraries.  The
+ latter may find these tools useful for testing and debugging purposes also.
