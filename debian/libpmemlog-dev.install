@@ -1,0 +1,4 @@
+usr/include/libpmemlog.h
+usr/lib/*/libpmemlog.a
+usr/lib/*/libpmemlog.so
+usr/lib/*/pkgconfig/libpmemlog.pc

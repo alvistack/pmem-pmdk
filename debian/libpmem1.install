@@ -1,0 +1,2 @@
+usr/lib/*/libpmem.so.1*
+usr/share/pmdk/pmdk.magic
