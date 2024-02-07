@@ -1,0 +1,3 @@
+# The soname reflects "API v2 ABI v1", but as upstream's record at keeping
+# ABI unbroken is perfect so far, let's go with a prietter name.
+libpmem2: package-name-doesnt-match-sonames libpmem2-1
