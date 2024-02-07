@@ -1,0 +1,5 @@
+usr/include/libpmemobj.h
+usr/include/libpmemobj/*.h
+usr/lib/*/libpmemobj.a
+usr/lib/*/libpmemobj.so
+usr/lib/*/pkgconfig/libpmemobj.pc
