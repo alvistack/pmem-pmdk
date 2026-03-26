@@ -1,0 +1,5 @@
+usr/include/libpmem2.h
+usr/include/libpmem2/*.h
+usr/lib/*/libpmem2.a
+usr/lib/*/libpmem2.so
+usr/lib/*/pkgconfig/libpmem2.pc

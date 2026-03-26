@@ -1,0 +1,4 @@
+usr/include/libpmem.h
+usr/lib/*/libpmem.a
+usr/lib/*/libpmem.so
+usr/lib/*/pkgconfig/libpmem.pc

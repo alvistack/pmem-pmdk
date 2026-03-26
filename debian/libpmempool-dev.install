@@ -1,0 +1,4 @@
+usr/include/libpmempool.h
+usr/lib/*/libpmempool.a
+usr/lib/*/libpmempool.so
+usr/lib/*/pkgconfig/libpmempool.pc
